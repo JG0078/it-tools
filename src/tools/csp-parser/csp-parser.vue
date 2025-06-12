@@ -1,38 +1,3 @@
-<template>
-  <div class="csp-parser">
-    <h2>Content-Security-Policy Parser</h2>
-    <textarea
-      v-model="header"
-      rows="6"
-      cols="60"
-      placeholder="Paste your CSP header here"
-    ></textarea>
-    <br />
-    <button @click="parseCSP" :disabled="!header.trim()">Parse</button>
-
-    <div v-if="error" class="error">{{ error }}</div>
-
-    <div v-if="parsed && Object.keys(parsed).length > 0" class="result">
-      <h3>Parsed Directives</h3>
-      <table>
-        <thead>
-          <tr><th>Directive</th><th>Values</th></tr>
-        </thead>
-        <tbody>
-          <tr v-for="(value, directive) in parsed" :key="directive">
-            <td><code>{{ directive }}</code></td>
-            <td>{{ value }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div v-else-if="parsed">
-      <p>No valid directives found.</p>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref } from 'vue'
 
@@ -71,6 +36,41 @@ function parseCSP() {
   parsed.value = result
 }
 </script>
+
+<template>
+  <div class="csp-parser">
+    <h2>Content-Security-Policy Parser</h2>
+    <textarea
+      v-model="header"
+      rows="6"
+      cols="60"
+      placeholder="Paste your CSP header here"
+    ></textarea>
+    <br />
+    <button @click="parseCSP" :disabled="!header.trim()">Parse</button>
+
+    <div v-if="error" class="error">{{ error }}</div>
+
+    <div v-if="parsed && Object.keys(parsed).length > 0" class="result">
+      <h3>Parsed Directives</h3>
+      <table>
+        <thead>
+          <tr><th>Directive</th><th>Values</th></tr>
+        </thead>
+        <tbody>
+          <tr v-for="(value, directive) in parsed" :key="directive">
+            <td><code>{{ directive }}</code></td>
+            <td>{{ value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div v-else-if="parsed">
+      <p>No valid directives found.</p>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .csp-parser {

@@ -2,7 +2,7 @@ import { ArrowsShuffle } from '@vicons/tabler';
 import { defineTool } from '../tool';
 
 export const tool = defineTool({
-  name: 'Csp parser',
+  name: 'CSP Parser',
   path: '/csp-parser',
   description: '',
   keywords: ['csp', 'parser'],

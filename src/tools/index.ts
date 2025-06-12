@@ -3,9 +3,7 @@ import { tool as base64StringConverter } from './base64-string-converter';
 import { tool as basicAuthGenerator } from './basic-auth-generator';
 import { tool as cspParser } from './csp-parser';
 import { tool as emailNormalizer } from './email-normalizer';
-
 import { tool as asciiTextDrawer } from './ascii-text-drawer';
-
 import { tool as textToUnicode } from './text-to-unicode';
 import { tool as safelinkDecoder } from './safelink-decoder';
 import { tool as xmlToJson } from './xml-to-json';
